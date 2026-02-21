@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoveConfession</title>
+
+
+<link href="https://fonts.google.com/specimen/Ubuntu?specimen.preview.text=Whereas+recognition+of+the+inherent+dignity" rel="stylesheet">
+
+<style>
+body {
+    background: linear-gradient(to right, #ff9a9e, #fecfef);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #8b0000;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+/* Button container */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: hotpink;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Hover effect */
+.btn:hover {
+    transform: scale(1.2);
+    background-color: deeppink;
+}
+
+/* Click effect */
+.btn:active {
+    transform: scale(1.1);
+}
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1.5);
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<img src="https://media.tenor.com/aPFYmCN1OqsAAAAi/wrapped-gifts-birthday-presents.gif" height="350">
+
+<h1>Rutu, will you be my girlfriend? </h1>
+<div class="buttons">
+    <a href="#" class="btn" id="yesBtn">YES </a>
+    <a href="no.html" class="btn" id="noBtn">NO </a>
+</div>
+<script>
+const yesBtn = document.getElementById("yesBtn");
+
+yesBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    for (let i = 0; i < 20; i++) {
+        createHeart();
+    }
+
+    // Go to next page after 2 seconds
+    setTimeout(() => {
+        window.location.href = "yes.html";
+    }, 2000);
+});
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 2000);
+}
+</script>
+</body>
+</html>
